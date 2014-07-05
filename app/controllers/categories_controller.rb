@@ -12,26 +12,40 @@ class CategoriesController < ApplicationController
   end
 
   def new
+    if !current_user.admin?
+    redirect_to new_user_session_path
+    end
   end
 
   def edit
+    if !current_user.admin?
+    redirect_to new_user_session_path
+    end
   end
 
   def create
     self.category = Category.new(category_params)
 
-    if category.save
-      redirect_to category, notice: 'Category was successfully created.'
+    if !current_user.admin?
+    redirect_to new_user_session_path
     else
+     if category.save
+      redirect_to category, notice: 'Category was successfully created.'
+     else
       render action: 'new'
+     end
     end
   end
 
   def update
-    if category.update(category_params)
-      redirect_to category, notice: 'Category was successfully updated.'
+    if !current_user.admin?
+    redirect_to new_user_session_path
     else
+     if category.update(category_params)
+      redirect_to category, notice: 'Category was successfully updated.'
+     else
       render action: 'edit'
+     end
     end
   end
 
