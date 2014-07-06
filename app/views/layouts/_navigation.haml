@@ -1,0 +1,16 @@
+.navbar.navbar-inverse.navbar-fixed-top{ role: 'navigation' }
+  .container
+    .navbar-header
+      %button.navbar-toggle{ type: 'button', data: { toggle: 'collapse', target: '.navbar-collapse' } }
+        .sr-only Toggle navigation
+        .icon-bar
+        .icon-bar
+        .icon-bar
+      =link_to "Workshops app", '#', id: "logo" 
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li= link_to current_user.email, edit_user_registration_path
+          %li= link_to 'Logout', destroy_user_session_path, method: :delete
+        - else
+          %li= link_to 'Log in', new_user_session_path
