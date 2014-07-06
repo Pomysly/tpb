@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
+  before_action :require_admin, only: [:new, :create, :update, :edit]
   
   expose(:categories)
   expose(:category)
@@ -12,41 +13,27 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    if !current_user.admin?
-    redirect_to new_user_session_path
-    end
   end
 
   def edit
-    if !current_user.admin?
-    redirect_to new_user_session_path
-    end
   end
 
   def create
     self.category = Category.new(category_params)
 
-    if !current_user.admin?
-    redirect_to new_user_session_path
-    else
      if category.save
       redirect_to category, notice: 'Category was successfully created.'
      else
       render action: 'new'
      end
-    end
   end
 
   def update
-    if !current_user.admin?
-    redirect_to new_user_session_path
-    else
      if category.update(category_params)
       redirect_to category, notice: 'Category was successfully updated.'
      else
       render action: 'edit'
      end
-    end
   end
 
   def destroy
@@ -58,4 +45,12 @@ class CategoriesController < ApplicationController
     def category_params
       params.require(:category).permit(:name)
     end
+
+  def require_admin
+    unless current_user.admin?
+      flash[:error] = "You are not an admin"
+      redirect_to new_user_session_path
+    end
+  end
+
 end
