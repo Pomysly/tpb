@@ -46,9 +46,9 @@ describe ProductsController do
 
     describe "GET edit" do
       describe "with valid params" do
-        it "redirects to product page" do
+        it "redirects to category page" do
           get :edit, { id: product.to_param, category_id: category.to_param }, valid_session
-          expect(response).to redirect_to(category_product_url(category, product))
+          expect(response).to redirect_to(category_url(product.category))
         end
 
         it "renders error message" do
