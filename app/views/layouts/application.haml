@@ -15,6 +15,7 @@
       %div
         -flash.each do |type, msg|
           %div{ class: "alert alert-#{type}" }
-            =msg
+            %button.close{"data-dismiss" => "alert", :type => "button"} ×
+            %strong=msg
 
       = yield
