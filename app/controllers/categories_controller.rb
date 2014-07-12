@@ -48,8 +48,8 @@ class CategoriesController < ApplicationController
 
   def require_admin
     unless current_user.admin?
-      flash[:error] = "You are not an admin"
-      redirect_to new_user_session_path
+      redirect_to categories_url
+      flash[:error] = 'Only admin can add, edit and destroy categories.'
     end
   end
 
