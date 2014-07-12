@@ -39,6 +39,10 @@
 
 #review_content{
   width: 400px
+} 
+
+#product_description{
+  width: 300px
 }
 
 div {
@@ -124,5 +128,9 @@ div {
 
 .alert-block p + p {
   margin-top: 5px;
+}
+
+.narrow {
+  width: 500px;
 }
 
