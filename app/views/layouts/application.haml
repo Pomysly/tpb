@@ -10,5 +10,11 @@
 
   %body
     = render 'layouts/navigation'
+
     .container.main
+      %div
+        -flash.each do |type, msg|
+          %div{ class: "alert alert-#{type}" }
+            =msg
+
       = yield
