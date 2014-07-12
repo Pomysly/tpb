@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "categories";
+@import "products";
 
 #logo {
   float: left;
@@ -18,5 +20,25 @@
 }
 
 .main {
- margin-top: 50px
+ margin-top: 60px
+}
+
+.email{
+  width: 200px;
+}
+
+.password {
+  width: 200px;
+	margin-bottom: 10px;
+}
+
+.string {
+	width: 200px;
+	margin-bottom: 10px;
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
 }

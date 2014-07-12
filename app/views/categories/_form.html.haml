@@ -1,5 +1,5 @@
 = form_for category do |f|
-  - if category.errors.any?
+  - if category.errors.any? && @category != nil
     #error_explanation
       %h2= "#{pluralize(@category.errors.count, "error")} prohibited this category from being saved:"
       %ul
@@ -8,6 +8,6 @@
 
   .field
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, required: true 
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: "btn btn-large btn-primary"
