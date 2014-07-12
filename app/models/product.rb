@@ -11,7 +11,7 @@ class Product < ActiveRecord::Base
    	if self.reviews.size > 0
    		self.reviews.average(:rating) 
    	else
-        undefined
+        "no ratings yet"
     end
    end
 end
