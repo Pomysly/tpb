@@ -1,17 +1,32 @@
-%p#notice= notice
-
-%p
-  %b Name:
+%h4
+  %b Category Name:
   = category.name
 
-%p
-  - category.products.each do |product|
-    = product.title
+%h4
+  Products:
+  %br
+%table.table.table-striped.table-hover
+  %tr
+    %th Name
+    %th Descriprtion
+    %th Price
+    %th Avg rating
+    %th
+    %th
+
+    - category.products.each do |product|
+      %tr
+        %td= product.title
+        %td= product.description
+        %td= product.price
+        %td= product.average_rating
+        %td= link_to 'Edit', edit_category_product_path(category, product)
+        %td= link_to 'Destroy', category_product_url(category, product), method: :delete, data: { confirm: 'Are you sure?' }
 
 %p
   %h3 New product
   = render 'products/form'
 
-= link_to 'Edit', edit_category_path(category)
+= link_to 'Edit Category', edit_category_path(category)
 \|
 = link_to 'Back', categories_path
