@@ -5,7 +5,7 @@
 %h4
   Products:
   %br
-%table.table.table-striped.table-hover
+%table.table.table-striped
   %tr
     %th Name
     %th Descriprtion
@@ -16,12 +16,12 @@
 
     - category.products.each do |product|
       %tr
-        %td= product.title
+        %td= link_to "#{product.title}", category_product_path(category, product)
         %td= product.description
         %td= product.price
         %td= product.average_rating
         %td= link_to 'Edit', edit_category_product_path(category, product)
-        %td= link_to 'Destroy', category_product_url(category, product), method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to link_to raw('<span class="glyphicon glyphicon-trash"></span>'), category_product_url(category, product), method: :delete, data: { confirm: 'Are you sure?' }
 
 %p
   %h3 New product

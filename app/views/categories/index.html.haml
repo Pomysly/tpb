@@ -1,18 +1,16 @@
 %h1 Listing categories
 
-%table.table.table-striped.table-hover
+%table.table.table-striped.narrow
   %tr
     %th Name
-    %th
     %th
     %th
 
   - categories.each do |category|
     %tr
-      %td= category.name
-      %td= link_to 'Show', category
+      %td= link_to "#{category.name}", category
       %td= link_to 'Edit', edit_category_path(category)
-      %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+      %td= link_to raw('<span class="glyphicon glyphicon-trash"></span>'), category, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
