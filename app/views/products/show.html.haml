@@ -17,7 +17,10 @@
   %b Reviews:
   = render reviews
   %br
-  = render 'reviews/form'
+  - if user_signed_in?
+    = render 'reviews/form'
+  - else
+    .alert.alert-info #{link_to 'Sign in', new_user_session_path} to add new review
 
 
 = link_to 'Edit', edit_category_product_path(category.id, product.id)
