@@ -126,8 +126,8 @@ describe CategoriesController do
       let(:category) { Category.create! valid_attributes }
       describe "with valid params" do
         it "updates the requested category" do
-          Category.any_instance.should_receive(:update).with({ "name" => "MyString" })
-          put :update, {:id => category.to_param, :category => { "name" => "MyString" }}, valid_session
+          Category.any_instance.should_receive(:update).with({ "name" => "MyNewString" })
+          put :update, {:id => category.to_param, :category => { "name" => "MyNewString" }}, valid_session
         end
 
         it "exposes the requested category" do

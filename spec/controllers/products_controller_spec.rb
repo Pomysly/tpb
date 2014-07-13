@@ -78,20 +78,12 @@ describe ProductsController do
     end
   end
 
-  context 'user is signed in' do
 
-    let(:user) { build(:user) }
-    before do
-      sign_in user
-      controller.stub(:user_signed_in?).and_return(true)
-      controller.stub(:current_user).and_return(user)
-      controller.stub(:authenticate_user!).and_return(user)
-    end
 
     describe "GET index" do
       it "expose all products" do
         product = Product.create! valid_attributes
-        get :index, {}, valid_session
+        get :index, {category_id: category.to_param}, valid_session
         expect(controller.products).to eq([product])
       end
     end
@@ -102,6 +94,14 @@ describe ProductsController do
         get :show, { id: product.to_param, category_id: category.to_param }, valid_session
         expect(controller.product).to eq(product)
       end
+    end
+
+  context 'Product owner is signed in' do
+
+    let!(:user) { create(:user) }
+
+    before do
+      sign_in user
     end
 
     describe "GET new" do
@@ -156,21 +156,20 @@ describe ProductsController do
     end
 
     describe "PUT update" do
+    let!(:product) { create(:product, {user: user, category: category}) }
+
       describe "with valid params" do
         it "updates the requested product" do
-          product = Product.create! valid_attributes
-          Product.any_instance.should_receive(:update).with({ "title" => "MyString" })
-          put :update, { id: product.to_param, product: { "title" => "MyString" }, category_id: category.to_param }, valid_session
+          Product.any_instance.should_receive(:update).with({ "title" => "MyNewString" })
+          put :update, { id: product.to_param, product: { "title" => "MyNewString" }, category_id: category.to_param }, valid_session
         end
 
         it "expose the requested product" do
-          product = Product.create! valid_attributes
           put :update, { id: product.to_param, product: valid_attributes, category_id: category.to_param }, valid_session
           expect(controller.product).to eq(product)
         end
 
         it "redirects to the product" do
-          product = Product.create! valid_attributes
           put :update, { id: product.to_param, product: valid_attributes, category_id: category.to_param }, valid_session
           response.should redirect_to(category_product_url(category, product))
         end
@@ -178,14 +177,12 @@ describe ProductsController do
 
       describe "with invalid params" do
         it "expose the product" do
-          product = Product.create! valid_attributes
           Product.any_instance.stub(:save).and_return(false)
           put :update, { id: product.to_param, product: { "title" => "invalid value" }, category_id: category.to_param }, valid_session
           expect(controller.product).to eq(product)
         end
 
         it "re-renders the 'edit' template" do
-          product = Product.create! valid_attributes
           Product.any_instance.stub(:save).and_return(false)
           put :update, { id: product.to_param, product: { "title" => "invalid value" }, category_id: category.to_param }, valid_session
           response.should render_template("edit")
