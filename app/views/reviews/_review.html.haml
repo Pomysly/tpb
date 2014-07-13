@@ -1,7 +1,5 @@
-%ul
-	%li
-		%em=review.author 
-		wrote:
-	=review.content
-	%b | rate: 
-	%b= review.rating
+%blockquote
+	%p=review.content
+	%footer 
+		%em #{review.author} 
+		%bodytext | Rating: #{review.rating}
