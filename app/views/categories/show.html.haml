@@ -23,7 +23,10 @@
 
 %p
   %h3 New product
-  = render 'products/form'
+  - if user_signed_in?
+    = render 'products/form'
+  - else
+    .alert.alert-info #{link_to 'Sign in', new_user_session_path} to add new product
 
 = link_to 'Edit Category', edit_category_path(category)
 \|
