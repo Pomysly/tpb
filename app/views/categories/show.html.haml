@@ -4,7 +4,7 @@
   %li.active #{category.name}
   
 
-%h3 Category #{category.name}
+%h2 #{category.name} #{link_to raw('<span class="glyphicon glyphicon-pencil small"></span>'), edit_category_path(category)}
 
 %table.table
   %tr
@@ -21,7 +21,7 @@
         %td= product.description
         %td $ #{product.price}
         %td= product.average_rating
-        %td= link_to 'Edit', edit_category_product_path(category, product)
+        %td= link_to 'Edit product', edit_category_product_path(category, product)
         %td= link_to link_to raw('<span class="glyphicon glyphicon-trash"></span>'), category_product_url(category, product), method: :delete, data: { confirm: 'Are you sure?' }
 
 %p
@@ -31,6 +31,4 @@
   - else
     .alert.alert-info #{link_to 'Sign in', new_user_session_path} to add new product
 
-= link_to 'Edit Category', edit_category_path(category)
-\|
 = link_to 'Back', categories_path
