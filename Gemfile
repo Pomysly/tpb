@@ -8,7 +8,7 @@ gem 'decent_exposure'
 gem 'decent_decoration'
 gem 'devise'
 gem 'simple_form'
-gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootstrap-sass', '~> 3.2.0'
 
 gem 'haml-rails'
 

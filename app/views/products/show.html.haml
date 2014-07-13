@@ -1,9 +1,5 @@
-%p#notice= notice
-%p#error= flash[:error]
 
-%p
-  %b Title:
-  = product.title
+%h2= product.title
 %p
   %b Description:
   = product.description
@@ -16,11 +12,15 @@
   = product.category.name
 
 %p
-  %b Reviews
-  = render 'reviews/form'
+  %b Reviews:
+  = render reviews
+  %br
+  - if user_signed_in?
+    = render 'reviews/form'
+  - else
+    .alert.alert-info #{link_to 'Sign in', new_user_session_path} to add new review
 
-= render reviews
 
 = link_to 'Edit', edit_category_product_path(category.id, product.id)
 \|
-= link_to 'Back', category_products_path
+= link_to 'Back', category_path(category)

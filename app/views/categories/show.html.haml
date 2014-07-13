@@ -1,17 +1,30 @@
-%p#notice= notice
+%h3 Category #{category.name}
 
-%p
-  %b Name:
-  = category.name
+%table.table
+  %tr
+    %th Product
+    %th Descriprtion
+    %th Price
+    %th Avg rating
+    %th
+    %th
 
-%p
-  - category.products.each do |product|
-    = product.title
+    - category.products.each do |product|
+      %tr
+        %td= link_to "#{product.title}", category_product_path(category, product)
+        %td= product.description
+        %td= product.price
+        %td= product.average_rating
+        %td= link_to 'Edit', edit_category_product_path(category, product)
+        %td= link_to link_to raw('<span class="glyphicon glyphicon-trash"></span>'), category_product_url(category, product), method: :delete, data: { confirm: 'Are you sure?' }
 
 %p
   %h3 New product
-  = render 'products/form'
+  - if user_signed_in?
+    = render 'products/form'
+  - else
+    .alert.alert-info #{link_to 'Sign in', new_user_session_path} to add new product
 
-= link_to 'Edit', edit_category_path(category)
+= link_to 'Edit Category', edit_category_path(category)
 \|
 = link_to 'Back', categories_path

@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
+  before_action :require_admin, only: [:new, :create, :update, :edit]
   
   expose(:categories)
   expose(:category)
@@ -20,19 +21,19 @@ class CategoriesController < ApplicationController
   def create
     self.category = Category.new(category_params)
 
-    if category.save
+     if category.save
       redirect_to category, notice: 'Category was successfully created.'
-    else
+     else
       render action: 'new'
-    end
+     end
   end
 
   def update
-    if category.update(category_params)
+     if category.update(category_params)
       redirect_to category, notice: 'Category was successfully updated.'
-    else
+     else
       render action: 'edit'
-    end
+     end
   end
 
   def destroy
@@ -44,4 +45,12 @@ class CategoriesController < ApplicationController
     def category_params
       params.require(:category).permit(:name)
     end
+
+  def require_admin
+    unless current_user.admin?
+      redirect_to categories_url
+      flash[:error] = 'Only admin can add, edit and destroy categories.'
+    end
+  end
+
 end
