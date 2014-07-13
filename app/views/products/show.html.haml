@@ -1,3 +1,10 @@
+%ol.breadcrumb
+  %li
+    %a{href: root_path} Categories
+  %li
+    %a{href: category_path(category)} #{category.name}
+  %li.active #{product.title}
+
 
 %h2= product.title
 %p
