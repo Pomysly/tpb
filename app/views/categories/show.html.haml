@@ -13,7 +13,7 @@
       %tr
         %td= link_to "#{product.title}", category_product_path(category, product)
         %td= product.description
-        %td= product.price
+        %td $ #{product.price}
         %td= product.average_rating
         %td= link_to 'Edit', edit_category_product_path(category, product)
         %td= link_to link_to raw('<span class="glyphicon glyphicon-trash"></span>'), category_product_url(category, product), method: :delete, data: { confirm: 'Are you sure?' }
