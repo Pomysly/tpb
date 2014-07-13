@@ -27,7 +27,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'pry'
-  gem 'rails_12factor'
 end
 
 group :test do
@@ -38,3 +37,4 @@ gem 'jquery-rails'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'simple_enum'
+gem 'rails_12factor'
