@@ -8,9 +8,11 @@
   = product.price
 
 %p
-  %b Category
+  %b Category:
   = product.category.name
-
+%p
+  %b Average Rating:
+  = product.average_rating
 %p
   %b Reviews:
   = render reviews
