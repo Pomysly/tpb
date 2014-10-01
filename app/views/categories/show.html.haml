@@ -18,7 +18,7 @@
   - category.products.each do |product|
     .col-sm-6.col-md-4
       .thumbnail
-        = image_tag(product.picture)
+        = link_to image_tag(product.picture), category_product_path(category, product)
         .caption
           %h3= product.title
           %p
@@ -44,7 +44,7 @@
             = product.price
           %p
             %a.btn.btn-primary{:href => category_product_path(category, product), :role => "button"} Show
-            %a.btn.btn-default{:href => "#", :role => "button"} Edit
+            %a.btn.btn-default{:href => edit_category_product_path(category.id, product.id), :role => "button"} Edit
 
 
 
