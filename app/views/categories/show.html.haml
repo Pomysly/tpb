@@ -8,27 +8,30 @@
 
 %table.table
   %tr
-    %th Product
+    %th Name
     %th Description
+    %th Year
+    %th Gender
+    %th Color
+    %th Height
     %th Price
-    %th Avg rating
-    %th
-    %th
+    %th 
 
     - category.products.each do |product|
       %tr
         %td= link_to "#{product.title}", category_product_path(category, product)
-        %td= product.description
+        %td= truncate(product.description, :length => 150, :separator => " ")
+        %td
+        %td
+        %td
+        %td
         %td $ #{product.price}
-        %td= product.average_rating
-        %td= link_to 'Edit product', edit_category_product_path(category, product)
-        %td= link_to link_to raw('<span class="glyphicon glyphicon-trash"></span>'), category_product_url(category, product), method: :delete, data: { confirm: 'Are you sure?' }
+        %td
 
 %p
-  %h3 New product
-  - if user_signed_in?
-    = render 'products/form'
-  - else
-    .alert.alert-info #{link_to 'Sign in', new_user_session_path} to add new product
+
+- if user_signed_in?
+  %h3 Add a new horse for sale:
+  = render 'products/form'
 
 = link_to 'Back', categories_path
