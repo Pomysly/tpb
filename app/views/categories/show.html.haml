@@ -34,7 +34,8 @@
 %p
 
 - if user_signed_in?
-  %h3 Add a new horse for sale:
-  = render 'products/form'
+  %p 
+  = link_to "Add a new horse for sale", new_category_product_path(category.id), class: "btn btn-large btn-primary"
 
-= link_to 'Back', categories_path
+  %p
+
