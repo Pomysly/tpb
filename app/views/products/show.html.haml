@@ -5,8 +5,9 @@
     %a{href: category_path(category)} #{category.name}
   %li.active #{product.title}
 
-
 %h2 #{product.title} #{link_to raw('<span class="glyphicon glyphicon-pencil small"></span>'), edit_category_product_path(category.id, product.id)}
+
+= image_tag(product.picture, :width => 600)
 %p
   %b Description:
   = product.description
