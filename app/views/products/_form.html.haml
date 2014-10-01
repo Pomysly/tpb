@@ -12,9 +12,25 @@
     %br
     = f.text_field :title
   .field
-    = f.label :picture
+    = f.label :breed
     %br
-    = f.text_field :picture
+    = f.text_field :breed
+  .field
+    = f.label :gender
+    %br
+    = f.text_field :gender
+  .field
+    = f.label :"Year of birth"
+    %br
+    = f.text_field :YoB
+  .field
+    = f.label :color
+    %br
+    = f.text_field :color
+  .field
+    = f.label :height
+    %br
+    = f.text_field :height
   .field
     = f.label :description
     %br
@@ -23,5 +39,9 @@
     = f.label :price
     %br
     = f.text_field :price
+  .field
+    = f.label :"picture url"
+    %br
+    = f.text_field :picture
   .actions
     = f.submit 'Save', class: "btn btn-large btn-primary"
