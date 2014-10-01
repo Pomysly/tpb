@@ -6,7 +6,6 @@ class Product < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :picture
   validates_presence_of :price, :description
-  validates :price
 
    def average_rating
    	if self.reviews.size > 0
