@@ -8,34 +8,47 @@
 - if user_signed_in?
   %p #{link_to "(Edit category name)", edit_category_path(category)}
 
-%table.table
-  %tr
-    %th Name
-    %th Breed
-    %th Gender
-    %th Year
-    %th Description
-    %th Color
-    %th Height
-    %th Price
-
-
-    - category.products.each do |product|
-      %tr
-        %td= link_to "#{product.title}", category_product_path(category, product)
-        %td= product.breed
-        %td= product.gender
-        %td= product.YoB
-        %td= truncate(product.description, :length => 150, :separator => " ")
-        %td= product.color
-        %td= product.height
-        %td= product.price
-
-%p
-
 - if user_signed_in?
   %p 
   = link_to "Add a new horse for sale", new_category_product_path(category.id), class: "btn btn-large btn-primary"
 
-  %p
+%p
+
+.row
+  - category.products.each do |product|
+    .col-sm-6.col-md-4
+      .thumbnail
+        = image_tag(product.picture)
+        .caption
+          %h3= product.title
+          %p
+            %b 
+            = truncate(product.description, :length => 150, :separator => " ")
+          %p
+            %b Breed:
+            = product.breed
+          %p
+            %b Gender:
+            = product.gender
+          %p
+            %b Year of Birth:
+            = product.YoB
+          %p
+            %b Height:
+            = product.height
+          %p
+            %b color:
+            = product.color
+          %p
+            %b Price:
+            = product.price
+          %p
+            %a.btn.btn-primary{:href => category_product_path(category, product), :role => "button"} Show
+            %a.btn.btn-default{:href => "#", :role => "button"} Edit
+
+
+
+
+%p 
+= link_to "Add a new horse for sale", new_category_product_path(category.id), class: "btn btn-large btn-primary"
 
