@@ -7,7 +7,11 @@
 
 %h2 #{product.title} #{link_to raw('<span class="glyphicon glyphicon-pencil small"></span>'), edit_category_product_path(category.id, product.id)}
 
-= image_tag(product.picture, :width => 600)
+.row
+  .col-xs-6.col-md-3
+    .thumbnail
+      = image_tag(product.picture)
+
 %p
   %b Description:
   = product.description
@@ -18,16 +22,5 @@
   %b Category:
   = product.category.name
 %p
-  %b Average Rating:
-  = product.average_rating
-%p
-  %b Reviews:
-  = render reviews
-  %br
-  - if user_signed_in?
-    = render 'reviews/form'
-  - else
-    .alert.alert-info #{link_to 'Sign in', new_user_session_path} to add new review
-
 
 = link_to 'Back', category_path(category)
