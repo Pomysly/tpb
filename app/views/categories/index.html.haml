@@ -5,7 +5,7 @@
 
   .col-sm-6.col-md-8
     .jumbotron
-      %p We are a young company from Poland offering exeptional german sport horses for sale. To view current horses list select one of the categories below:
+      %p We are a young company from Poland offering exceptional german sport horses for sale. To view current horses list select one of the categories below:
       - categories.each do |category|
         .btn.btn-lg.btn-default= link_to "#{category.name}", category
       - if user_signed_in?
