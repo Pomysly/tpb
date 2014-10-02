@@ -5,10 +5,9 @@
 
   .col-sm-6.col-md-8
     .jumbotron
-      %p "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      %ul
-        - categories.each do |category|
-          %li= link_to "#{category.name}", category
+      %p We are a young company offering exeptional sport horses for sale. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Choose one of the category below:
+      - categories.each do |category|
+        .btn.btn-lg.btn-default= link_to "#{category.name}", category
 
 - if user_signed_in?
   = link_to 'New Category', new_category_path, class: "btn btn-large btn-primary"
