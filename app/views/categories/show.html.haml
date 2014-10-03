@@ -18,7 +18,7 @@
   - category.products.each do |product|
     .col-sm-6.col-md-4
       .thumbnail
-        = link_to image_tag(product.picture), category_product_path(category, product)
+        = link_to image_tag(product.picture, :size =>'300x100'), category_product_path(category, product)
         .caption
           %h3= product.title
           %p

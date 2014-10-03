@@ -10,10 +10,12 @@
 .row
   .col-xs-6.col-md-3
     .thumbnail
-      = image_tag(product.picture)
+      = link_to product.picture, rel: :lightbox do
+        = image_tag product.picture, height: 100  
   .col-xs-6.col-md-3
     .thumbnail
-      = image_tag(product.picture)
+      = link_to product.picture, rel: :lightbox do
+        = image_tag product.picture, height: 100 
 %p
   %b 
   = product.description
