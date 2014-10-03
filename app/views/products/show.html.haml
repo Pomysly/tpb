@@ -41,7 +41,9 @@
   = product.category.name
 %p
 
-  %iframe{:src => product.youtube, height: "400", :width => "600"}
+.embed-responsive.embed-responsive-4by3.embed-responsive-item
+  %iframe{:src => product.youtube}
+
 
 = link_to 'Back', category_path(category)
 

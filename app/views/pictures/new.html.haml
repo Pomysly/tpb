@@ -2,7 +2,7 @@
 	%tr
 		%th Picture Link
 		%th
-	- pictures.each do |picture|
+	- product.pictures.each do |picture|
 		%tr
 			%td= picture.url
 			%td= link_to 'Delete picture', category_product_picture_path(product.category, product, picture), method: :delete, data: { confirm: 'Are you sure?' }

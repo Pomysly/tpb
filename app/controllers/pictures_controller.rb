@@ -25,9 +25,10 @@ class PicturesController < ApplicationController
 
   # POST /pictures
   def create
-    @picture = Picture.new(picture_params)
+    self.picture = Picture.new(picture_params)
 
-    if @picture.save
+    if picture.save
+      product.pictures << picture
       redirect_to new_category_product_picture_url, notice: 'New picture was added.'
     else
       render :new
@@ -57,6 +58,6 @@ class PicturesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def picture_params
-      params.require(:picture).permit(:url, :product_id, :product_id)
+      params.require(:picture).permit(:url, :product_id)
     end
 end

@@ -18,7 +18,8 @@
   - category.products.each do |product|
     .col-sm-6.col-md-4
       .thumbnail
-        = link_to image_tag(product.picture, :size =>'300x100'), category_product_path(category, product)
+        - if product.pictures.first
+          = link_to image_tag(product.pictures.first.url, :size =>'300x100'), category_product_path(category, product)
         .caption
           %h3= product.title
           %p
@@ -44,7 +45,9 @@
             = product.price
           %p
             %a.btn.btn-primary{:href => category_product_path(category, product), :role => "button"} Show
-            %a.btn.btn-default{:href => edit_category_product_path(category.id, product.id), :role => "button"} Edit
+            - if user_signed_in?
+              %a.btn.btn-default{:href => edit_category_product_path(category.id, product.id), :role => "button"} Edit 
+              = link_to 'Delete', category_product_path(product.category, product), method: :delete, data: { confirm: 'Are you sure?' }
 
 
 
