@@ -46,3 +46,8 @@
   %iframe{:src => product.youtube, height: "400", :width => "600"}
 
 = link_to 'Back', category_path(category)
+
+
+- if user_signed_in?
+  %p 
+  = link_to "add a new picture", new_picture_path, class: "btn btn-large btn-primary"

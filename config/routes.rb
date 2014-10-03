@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :pictures
-
   get 'pages/about'
 
   get 'pages/contact'
