@@ -7,17 +7,15 @@
 
 %h2 #{product.title} #{link_to raw('<span class="glyphicon glyphicon-pencil small"></span>'), edit_category_product_path(category.id, product.id)}
 
-.row
-  .col-xs-6.col-md-3
-    .thumbnail
-      = link_to product.picture, rel: :lightbox do
-        = image_tag product.picture, height: 100  
-  .col-xs-6.col-md-3
-    .thumbnail
-      = link_to product.picture, rel: :lightbox do
-        = image_tag product.picture, height: 100 
+=render 'pictures/pictures'
+
+- if user_signed_in?
+  %p 
+  = link_to "Manage pictures", new_category_product_picture_path(category.id, product.id), class: "btn btn-large btn-primary" 
 %p
-  %b 
+  %br
+
+.well
   = product.description
 %p
   %b Breed:
@@ -47,7 +45,3 @@
 
 = link_to 'Back', category_path(category)
 
-
-- if user_signed_in?
-  %p 
-  = link_to "add a new picture", new_picture_path, class: "btn btn-large btn-primary"
