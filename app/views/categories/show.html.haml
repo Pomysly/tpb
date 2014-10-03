@@ -6,10 +6,7 @@
 
 %h2 #{category.name} 
 - if user_signed_in?
-  #{link_to "(Edit category name)", edit_category_path(category)}
-
-- if user_signed_in?
-  %p 
+  = link_to "Edit category name", edit_category_path(category), class: "btn btn-large btn-default"
   = link_to "Add a new horse for sale", new_category_product_path(category.id), class: "btn btn-large btn-primary"
 
 %p
