@@ -10,3 +10,26 @@
         .btn.btn-lg.btn-default= link_to "#{category.name}", category
       - if user_signed_in?
         = link_to 'New Category', new_category_path, class: "btn btn-large btn-primary"
+
+%h1
+  %hr
+%h4 External adds & links:
+.row
+  .col-md-2
+    .thumbnail
+      = link_to image_tag("http://image.ceneo.pl/data/products/12278204/i-biomechanika-ruchu-konia-dla-jezdzcow-klucz-do-jazdy-w-rownowadze.jpg"), "http://www.ceneo.pl/12278204#pid=6607"
+  .col-md-2
+    .thumbnail
+      = link_to image_tag("http://image.ceneo.pl/data/products/17066746/i-swiadoma-jazda-konna.jpg"), "http://www.ceneo.pl/17066746#pid=6607"
+  .col-md-2
+    .thumbnail
+      = link_to image_tag("http://image.ceneo.pl/data/products/12278203/i-bez-kopyt-nie-ma-konia-rehabilitacja-kopyt-bose-konie-w-sporcie-i-rekreacji.jpg"), "http://www.ceneo.pl/12278203#pid=6607"
+  .col-md-2
+    .thumbnail
+      = link_to image_tag("http://image.ceneo.pl/data/products/920945/i-harmonia-jezdzca-i-konia.jpg"), "http://www.ceneo.pl/920945#pid=6607"
+  .col-md-2
+    .thumbnail
+      = link_to image_tag("http://image.ceneo.pl/data/products/7623053/i-konia-ksztaltuje-jezdziec.jpg"), "http://www.ceneo.pl/7623053#pid=6607"
+  .col-md-2
+    .thumbnail
+      = link_to image_tag("http://image.ceneo.pl/data/products/12342047/i-trening-mentalny-dla-jezdzcow.jpg"), "http://www.ceneo.pl/12342047#pid=6607"
