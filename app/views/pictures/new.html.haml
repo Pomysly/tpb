@@ -1,3 +1,5 @@
+%h3 #{product.title} Pictures
+
 %table.table
 	%tr
 		%th Picture Link
@@ -8,5 +10,6 @@
 			%td= link_to 'Delete picture', category_product_picture_path(product.category, product, picture), method: :delete, data: { confirm: 'Are you sure?' }
 %br
 = render 'form'
-
-//= link_to 'Back', category_product_path(category.id, product.id)
+%br
+%p
+	= link_to "back to #{product.title} Profile", category_product_path(category.id, product.id)
