@@ -2,6 +2,7 @@ class MoodentriesController < ApplicationController
   before_action :set_moodentry, only: [:show, :edit, :update, :destroy]
   expose :user
   expose :moodentry
+  expose :moodentries
   # GET /moodentries
   def index
     moodentries = Moodentry.all.where(user_id: current_user)

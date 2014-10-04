@@ -1,7 +1,7 @@
 .jumbotron
 	%h3 Dokumentacja dla pacjentów, psychologów i terapeutów
 	- if user_signed_in?
-		= link_to 'Oś Nastroju', user_moodentries_path(current_user), class: "btn btn-large btn-default"
+		= link_to 'Oś Nastroju', moodentries_path, class: "btn btn-large btn-default"
 		= link_to 'Skala Becka', becks_path, class: "btn btn-large btn-default"
 		= link_to 'ABC', '#', class: "btn btn-large btn-default"
 		= link_to 'Schematy', '#', class: "btn btn-large btn-default"

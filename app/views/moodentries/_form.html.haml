@@ -1,4 +1,4 @@
-= form_for [user, moodentry] do |f|
+= form_for moodentry do |f|
   - if @moodentry.errors.any?
     #error_explanation
       %h2= "#{pluralize(@moodentry.errors.count, "error")} prohibited this moodentry from being saved:"
