@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Date:
+  = @beck.date
+%p
+  %b Notes:
+  = @beck.notes
+%p
+  %b Value:
+  = @beck.value
+%p
+  %b User:
+  = @beck.user_id
+
+= link_to 'Edit', edit_beck_path(@beck)
+\|
+= link_to 'Back', becks_path

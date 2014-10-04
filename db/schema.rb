@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141004083151) do
+ActiveRecord::Schema.define(version: 20141004182216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "becks", force: true do |t|
+    t.date     "date"
+    t.text     "notes"
+    t.integer  "value"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "moodentries", force: true do |t|
     t.date     "date"
@@ -22,6 +37,40 @@ ActiveRecord::Schema.define(version: 20141004083151) do
     t.integer  "mood"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "pictures", force: true do |t|
+    t.string   "url"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pictures", ["product_id"], name: "index_pictures_on_product_id", using: :btree
+
+  create_table "products", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.string   "breed"
+    t.integer  "YoB"
+    t.string   "color"
+    t.string   "height"
+    t.string   "gender"
+    t.string   "youtube"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.text     "content"
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "product_id"
     t.integer  "user_id"
   end
 

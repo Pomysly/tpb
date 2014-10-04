@@ -4,7 +4,7 @@ class MoodentriesController < ApplicationController
   expose :moodentry
   # GET /moodentries
   def index
-    @moodentries = Moodentry.all
+    moodentries = Moodentry.all.where(user_id: current_user)
   end
 
   # GET /moodentries/1

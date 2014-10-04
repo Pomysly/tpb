@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :becks
+
   get 'pages/about'
 
   get 'pages/contact'

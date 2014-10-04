@@ -1,0 +1,30 @@
+.row
+  .col-md-6
+    %h1 Skala Depresji Becka
+  .col-md-6
+    %br
+    = link_to 'Dodaj nowy wpis', new_beck_path, class: "btn btn-large btn-primary pull-right"
+
+
+= line_chart Beck.where(user_id: current_user).group(:date).average(:value)
+
+%table.table
+  %tr
+    %th Data
+    %th Notatki
+    %th Wartość
+    %th
+    %th
+    %th
+
+  - becks.each do |beck|
+    %tr
+      %td= beck.date
+      %td= beck.notes
+      %td= beck.value
+      %td= link_to 'Edit', edit_beck_path(beck)
+      %td= link_to 'Destroy', beck, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Beck', new_beck_path
