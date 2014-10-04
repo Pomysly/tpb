@@ -1,0 +1,4 @@
+- product.pictures.each do |picture|
+  = link_to picture.url, rel: :lightbox do
+    = image_tag picture.url, height: 100  
+

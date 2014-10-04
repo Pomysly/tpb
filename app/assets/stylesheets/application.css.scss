@@ -1,6 +1,8 @@
 //= require lightbox
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "categories";
+@import "products";
 
 #logo {
   float: left;

@@ -1,0 +1,49 @@
+%ol.breadcrumb
+  %li
+    %a{href: root_path} Categories
+  %li
+    %a{href: category_path(category)} #{category.name}
+  %li.active #{product.title}
+
+%h2 #{product.title} #{link_to raw('<span class="glyphicon glyphicon-pencil small"></span>'), edit_category_product_path(category.id, product.id)}
+
+=render 'pictures/pictures'
+
+- if user_signed_in?
+  %p 
+  = link_to "Manage pictures", new_category_product_picture_path(category.id, product.id), class: "btn btn-large btn-primary" 
+%p
+  %br
+
+.well
+  = product.description
+%p
+  %b Breed:
+  = product.breed
+  %p
+  %b Gender:
+  = product.gender
+  %p
+  %b Year of Birth:
+  = product.YoB
+  %p
+  %b Height:
+  = product.height
+  %p
+  %b color:
+  = product.color
+  %p
+  %b Price:
+  = product.price
+
+%p
+  %b Category:
+  = product.category.name
+%p
+
+.embed-responsive.embed-responsive-4by3.embed-responsive-item
+  %iframe{:src => product.youtube}
+
+
+= link_to 'Back', category_path(category)
+

@@ -1,0 +1,15 @@
+= form_for [category, product, picture] do |f|
+  - if picture.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@picture.errors.count, "error")} prohibited this picture from being saved:"
+      %ul
+        - picture.errors.full_messages.each do |msg|
+          %li= msg
+  .row
+    .col-sm-6.col-md-4
+      .field
+        = f.label :'Add new picture link'
+        = f.text_field :url
+    .col-sm-6.col-md-4
+      .actions
+        = f.submit 'Add'
