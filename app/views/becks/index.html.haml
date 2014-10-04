@@ -3,7 +3,7 @@
     %h1 Skala Depresji Becka
   .col-md-6
     %br
-    = link_to 'Dodaj nowy wpis', new_beck_path, class: "btn btn-large btn-primary pull-right"
+    = link_to 'Dodaj nową wartość', new_beck_path, class: "btn btn-large btn-primary pull-right"
 
 
 = line_chart Beck.where(user_id: current_user).group(:date).average(:value)
@@ -27,4 +27,4 @@
 
 %br
 
-= link_to 'New Beck', new_beck_path
+= link_to 'Dodaj nową wartość', new_beck_path, class: "btn btn-large btn-primary pull-right"

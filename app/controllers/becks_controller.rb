@@ -28,7 +28,7 @@ class BecksController < ApplicationController
 
     if beck.save
       current_user.beck << beck
-      redirect_to becks_path, notice: 'Beck was successfully created.'
+      redirect_to becks_path, notice: 'Dodano nową wartość'
     else
       render :new
     end
@@ -37,7 +37,7 @@ class BecksController < ApplicationController
   # PATCH/PUT /becks/1
   def update
     if @beck.update(beck_params)
-      redirect_to @beck, notice: 'Beck was successfully updated.'
+      redirect_to @beck, notice: 'Zaktualizowano'
     else
       render :edit
     end
