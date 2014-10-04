@@ -1,0 +1,25 @@
+%h1 Listing moodentries
+
+%table.table
+  %tr
+    %th Date
+    %th Note
+    %th Mood
+    %th
+    %th
+    %th
+
+  - current_user.moodentries.each do |moodentry|
+    %tr
+      %td= moodentry.date
+      %td= moodentry.note
+      %td= moodentry.mood
+      %td= link_to 'Show', user_moodentry_path(user, moodentry)
+      %td= link_to 'Edit', edit_user_moodentry_path(user, moodentry)
+      %td= link_to 'Destroy', user_moodentry_path(user, moodentry), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Moodentry', new_user_moodentry_path(current_user)
+
+= line_chart Moodentry.where(user_id: current_user).group(:date).average(:mood)

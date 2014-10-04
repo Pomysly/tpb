@@ -40,3 +40,6 @@ gem 'carrierwave'
 gem 'simple_enum'
 gem 'rails_12factor'
 gem 'tzinfo-data'
+gem 'groupdate'
+gem "chartkick"
+
