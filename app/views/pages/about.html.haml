@@ -1,5 +1,4 @@
-%h1 Pages#about
-%p Find me in app/views/pages/about.html.haml
-
-- if user_signed_in?
-	= link_to 'Mood Entries', user_moodentries_path(current_user)
+.jumbotron
+	- if user_signed_in?
+		.jumbotron
+		= link_to 'Mood Entries', user_moodentries_path(current_user)
