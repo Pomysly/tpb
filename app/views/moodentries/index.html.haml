@@ -1,10 +1,12 @@
-%h1 Listing moodentries
+%h1 Oś Nastroju
+
+= line_chart Moodentry.where(user_id: current_user).group(:date).average(:mood)
 
 %table.table
   %tr
-    %th Date
-    %th Note
-    %th Mood
+    %th Data
+    %th Notatka
+    %th Nastrój (-10 / 10)
     %th
     %th
     %th
@@ -20,6 +22,5 @@
 
 %br
 
-= link_to 'New Moodentry', new_user_moodentry_path(current_user)
+= link_to 'Nowy wpis', new_user_moodentry_path(current_user), class: "btn btn-large btn-primary"
 
-= line_chart Moodentry.where(user_id: current_user).group(:date).average(:mood)
