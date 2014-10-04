@@ -1,4 +1,10 @@
-%h1 Oś Nastroju
+.row
+  .col-md-6
+    %h1 Oś Nastroju
+  .col-md-6
+    %br
+    = link_to 'Dodaj nowy wpis', new_user_moodentry_path(current_user), class: "btn btn-large btn-primary pull-right"
+
 
 = line_chart Moodentry.where(user_id: current_user).group(:date).average(:mood)
 
@@ -6,8 +12,7 @@
   %tr
     %th Data
     %th Notatka
-    %th Nastrój (-10 / 10)
-    %th
+    %th Nastrój
     %th
     %th
 
@@ -16,11 +21,10 @@
       %td= moodentry.date
       %td= moodentry.note
       %td= moodentry.mood
-      %td= link_to 'Show', user_moodentry_path(user, moodentry)
-      %td= link_to 'Edit', edit_user_moodentry_path(user, moodentry)
-      %td= link_to 'Destroy', user_moodentry_path(user, moodentry), :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Edytuj', edit_user_moodentry_path(user, moodentry)
+      %td= link_to 'Usuń', user_moodentry_path(user, moodentry), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'Nowy wpis', new_user_moodentry_path(current_user), class: "btn btn-large btn-primary"
+= link_to 'Dodaj nowy wpis', new_user_moodentry_path(current_user), class: "btn btn-large btn-primary pull-right"
 
