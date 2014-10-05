@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :schemes
-
+  resources :schemas
   resources :becks
   resources :moodentries
 

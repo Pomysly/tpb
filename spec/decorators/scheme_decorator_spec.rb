@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe SchemeDecorator do
+describe schemaDecorator do
 end

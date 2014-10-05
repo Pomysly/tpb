@@ -1,13 +1,13 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :scheme do
+  factory :schema do
     name "MyString"
     initiator "MyText"
     emotions "MyText"
     thoughts "MyText"
     behaviour "MyText"
-    my_scheme "MyText"
+    my_schema "MyText"
     h_thought_text "MyString"
     r_worry "MyText"
     o_reaction "MyText"

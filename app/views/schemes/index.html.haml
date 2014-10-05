@@ -1,13 +1,13 @@
-%h1 Listing schemes
+%h1 Schematy
 
-%table
+%table.table
   %tr
     %th Name
     %th Initiator
     %th Emotions
     %th Thoughts
     %th Behaviour
-    %th My scheme
+    %th My schema
     %th H thought text
     %th R worry
     %th O reaction
@@ -17,23 +17,23 @@
     %th
     %th
 
-  - @schemes.each do |scheme|
+  - @schemas.each do |schema|
     %tr
-      %td= scheme.name
-      %td= scheme.initiator
-      %td= scheme.emotions
-      %td= scheme.thoughts
-      %td= scheme.behaviour
-      %td= scheme.my_scheme
-      %td= scheme.h_thought_text
-      %td= scheme.r_worry
-      %td= scheme.o_reaction
-      %td= scheme.h_behaviour
-      %td= scheme.belief
-      %td= link_to 'Show', scheme
-      %td= link_to 'Edit', edit_scheme_path(scheme)
-      %td= link_to 'Destroy', scheme, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= schema.name
+      %td= schema.initiator
+      %td= schema.emotions
+      %td= schema.thoughts
+      %td= schema.behaviour
+      %td= schema.my_schema
+      %td= schema.h_thought
+      %td= schema.r_worry
+      %td= schema.o_reaction
+      %td= schema.h_behaviour
+      %td= schema.belief
+      %td= link_to 'Show', schema
+      %td= link_to 'Edit', edit_schema_path(schema)
+      %td= link_to 'Destroy', schema, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Scheme', new_scheme_path
+= link_to 'New schema', new_schema_path

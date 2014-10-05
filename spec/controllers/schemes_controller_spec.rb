@@ -18,10 +18,10 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-RSpec.describe SchemesController, :type => :controller do
+RSpec.describe schemasController, :type => :controller do
 
   # This should return the minimal set of attributes required to create a valid
-  # Scheme. As you add validations to Scheme, be sure to
+  # schema. As you add validations to schema, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -33,68 +33,68 @@ RSpec.describe SchemesController, :type => :controller do
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # SchemesController. Be sure to keep this updated too.
+  # schemasController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET index" do
-    it "assigns all schemes as @schemes" do
-      scheme = Scheme.create! valid_attributes
+    it "assigns all schemas as @schemas" do
+      schema = schema.create! valid_attributes
       get :index, {}, valid_session
-      expect(assigns(:schemes)).to eq([scheme])
+      expect(assigns(:schemas)).to eq([schema])
     end
   end
 
   describe "GET show" do
-    it "assigns the requested scheme as @scheme" do
-      scheme = Scheme.create! valid_attributes
-      get :show, {:id => scheme.to_param}, valid_session
-      expect(assigns(:scheme)).to eq(scheme)
+    it "assigns the requested schema as @schema" do
+      schema = schema.create! valid_attributes
+      get :show, {:id => schema.to_param}, valid_session
+      expect(assigns(:schema)).to eq(schema)
     end
   end
 
   describe "GET new" do
-    it "assigns a new scheme as @scheme" do
+    it "assigns a new schema as @schema" do
       get :new, {}, valid_session
-      expect(assigns(:scheme)).to be_a_new(Scheme)
+      expect(assigns(:schema)).to be_a_new(schema)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested scheme as @scheme" do
-      scheme = Scheme.create! valid_attributes
-      get :edit, {:id => scheme.to_param}, valid_session
-      expect(assigns(:scheme)).to eq(scheme)
+    it "assigns the requested schema as @schema" do
+      schema = schema.create! valid_attributes
+      get :edit, {:id => schema.to_param}, valid_session
+      expect(assigns(:schema)).to eq(schema)
     end
   end
 
   describe "POST create" do
     describe "with valid params" do
-      it "creates a new Scheme" do
+      it "creates a new schema" do
         expect {
-          post :create, {:scheme => valid_attributes}, valid_session
-        }.to change(Scheme, :count).by(1)
+          post :create, {:schema => valid_attributes}, valid_session
+        }.to change(schema, :count).by(1)
       end
 
-      it "assigns a newly created scheme as @scheme" do
-        post :create, {:scheme => valid_attributes}, valid_session
-        expect(assigns(:scheme)).to be_a(Scheme)
-        expect(assigns(:scheme)).to be_persisted
+      it "assigns a newly created schema as @schema" do
+        post :create, {:schema => valid_attributes}, valid_session
+        expect(assigns(:schema)).to be_a(schema)
+        expect(assigns(:schema)).to be_persisted
       end
 
-      it "redirects to the created scheme" do
-        post :create, {:scheme => valid_attributes}, valid_session
-        expect(response).to redirect_to(Scheme.last)
+      it "redirects to the created schema" do
+        post :create, {:schema => valid_attributes}, valid_session
+        expect(response).to redirect_to(schema.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved scheme as @scheme" do
-        post :create, {:scheme => invalid_attributes}, valid_session
-        expect(assigns(:scheme)).to be_a_new(Scheme)
+      it "assigns a newly created but unsaved schema as @schema" do
+        post :create, {:schema => invalid_attributes}, valid_session
+        expect(assigns(:schema)).to be_a_new(schema)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:scheme => invalid_attributes}, valid_session
+        post :create, {:schema => invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
     end
@@ -106,53 +106,53 @@ RSpec.describe SchemesController, :type => :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested scheme" do
-        scheme = Scheme.create! valid_attributes
-        put :update, {:id => scheme.to_param, :scheme => new_attributes}, valid_session
-        scheme.reload
+      it "updates the requested schema" do
+        schema = schema.create! valid_attributes
+        put :update, {:id => schema.to_param, :schema => new_attributes}, valid_session
+        schema.reload
         skip("Add assertions for updated state")
       end
 
-      it "assigns the requested scheme as @scheme" do
-        scheme = Scheme.create! valid_attributes
-        put :update, {:id => scheme.to_param, :scheme => valid_attributes}, valid_session
-        expect(assigns(:scheme)).to eq(scheme)
+      it "assigns the requested schema as @schema" do
+        schema = schema.create! valid_attributes
+        put :update, {:id => schema.to_param, :schema => valid_attributes}, valid_session
+        expect(assigns(:schema)).to eq(schema)
       end
 
-      it "redirects to the scheme" do
-        scheme = Scheme.create! valid_attributes
-        put :update, {:id => scheme.to_param, :scheme => valid_attributes}, valid_session
-        expect(response).to redirect_to(scheme)
+      it "redirects to the schema" do
+        schema = schema.create! valid_attributes
+        put :update, {:id => schema.to_param, :schema => valid_attributes}, valid_session
+        expect(response).to redirect_to(schema)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the scheme as @scheme" do
-        scheme = Scheme.create! valid_attributes
-        put :update, {:id => scheme.to_param, :scheme => invalid_attributes}, valid_session
-        expect(assigns(:scheme)).to eq(scheme)
+      it "assigns the schema as @schema" do
+        schema = schema.create! valid_attributes
+        put :update, {:id => schema.to_param, :schema => invalid_attributes}, valid_session
+        expect(assigns(:schema)).to eq(schema)
       end
 
       it "re-renders the 'edit' template" do
-        scheme = Scheme.create! valid_attributes
-        put :update, {:id => scheme.to_param, :scheme => invalid_attributes}, valid_session
+        schema = schema.create! valid_attributes
+        put :update, {:id => schema.to_param, :schema => invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested scheme" do
-      scheme = Scheme.create! valid_attributes
+    it "destroys the requested schema" do
+      schema = schema.create! valid_attributes
       expect {
-        delete :destroy, {:id => scheme.to_param}, valid_session
-      }.to change(Scheme, :count).by(-1)
+        delete :destroy, {:id => schema.to_param}, valid_session
+      }.to change(schema, :count).by(-1)
     end
 
-    it "redirects to the schemes list" do
-      scheme = Scheme.create! valid_attributes
-      delete :destroy, {:id => scheme.to_param}, valid_session
-      expect(response).to redirect_to(schemes_url)
+    it "redirects to the schemas list" do
+      schema = schema.create! valid_attributes
+      delete :destroy, {:id => schema.to_param}, valid_session
+      expect(response).to redirect_to(schemas_url)
     end
   end
 

@@ -1,2 +1,2 @@
-module SchemesHelper
+module schemasHelper
 end

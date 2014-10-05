@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "schemes/show", :type => :view do
+RSpec.describe "schemas/show", :type => :view do
   before(:each) do
-    @scheme = assign(:scheme, Scheme.create!(
+    @schema = assign(:schema, schema.create!(
       :name => "Name",
       :initiator => "MyText",
       :emotions => "MyText",
       :thoughts => "MyText",
       :behaviour => "MyText",
-      :my_scheme => "MyText",
+      :my_schema => "MyText",
       :h_thought_text => "H Thought Text",
       :r_worry => "MyText",
       :o_reaction => "MyText",

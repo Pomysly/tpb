@@ -1,34 +1,34 @@
 require "rails_helper"
 
-RSpec.describe SchemesController, :type => :routing do
+RSpec.describe schemasController, :type => :routing do
   describe "routing" do
 
     it "routes to #index" do
-      expect(:get => "/schemes").to route_to("schemes#index")
+      expect(:get => "/schemas").to route_to("schemas#index")
     end
 
     it "routes to #new" do
-      expect(:get => "/schemes/new").to route_to("schemes#new")
+      expect(:get => "/schemas/new").to route_to("schemas#new")
     end
 
     it "routes to #show" do
-      expect(:get => "/schemes/1").to route_to("schemes#show", :id => "1")
+      expect(:get => "/schemas/1").to route_to("schemas#show", :id => "1")
     end
 
     it "routes to #edit" do
-      expect(:get => "/schemes/1/edit").to route_to("schemes#edit", :id => "1")
+      expect(:get => "/schemas/1/edit").to route_to("schemas#edit", :id => "1")
     end
 
     it "routes to #create" do
-      expect(:post => "/schemes").to route_to("schemes#create")
+      expect(:post => "/schemas").to route_to("schemas#create")
     end
 
     it "routes to #update" do
-      expect(:put => "/schemes/1").to route_to("schemes#update", :id => "1")
+      expect(:put => "/schemas/1").to route_to("schemas#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      expect(:delete => "/schemes/1").to route_to("schemes#destroy", :id => "1")
+      expect(:delete => "/schemas/1").to route_to("schemas#destroy", :id => "1")
     end
 
   end

@@ -74,13 +74,13 @@ ActiveRecord::Schema.define(version: 20141005073749) do
     t.integer  "user_id"
   end
 
-  create_table "schemes", force: true do |t|
+  create_table "schemas", force: true do |t|
     t.string   "name"
     t.text     "initiator"
     t.text     "emotions"
     t.text     "thoughts"
     t.text     "behaviour"
-    t.text     "my_scheme"
+    t.text     "my_schema"
     t.text     "h_thought"
     t.text     "r_worry"
     t.text     "o_reaction"

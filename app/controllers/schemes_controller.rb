@@ -1,60 +1,60 @@
-class SchemesController < ApplicationController
+class schemasController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_scheme, only: [:show, :edit, :update, :destroy]
+  before_action :set_schema, only: [:show, :edit, :update, :destroy]
 
 
-  # GET /schemes
+  # GET /schemas
   def index
-    @schemes = Scheme.all
+    @schemas = Schema.all
   end
 
-  # GET /schemes/1
+  # GET /schemas/1
   def show
   end
 
-  # GET /schemes/new
+  # GET /schemas/new
   def new
-    @scheme = Scheme.new
+    @schema = Schema.new
   end
 
-  # GET /schemes/1/edit
+  # GET /schemas/1/edit
   def edit
   end
 
-  # POST /schemes
+  # POST /schemas
   def create
-    @scheme = Scheme.new(scheme_params)
+    @schema = Schema.new(schema_params)
 
-    if @scheme.save
-      redirect_to @scheme, notice: 'Scheme was successfully created.'
+    if @schema.save
+      redirect_to @schema, notice: 'schema was successfully created.'
     else
       render :new
     end
   end
 
-  # PATCH/PUT /schemes/1
+  # PATCH/PUT /schemas/1
   def update
-    if @scheme.update(scheme_params)
-      redirect_to @scheme, notice: 'Scheme was successfully updated.'
+    if @schema.update(schema_params)
+      redirect_to @schema, notice: 'schema was successfully updated.'
     else
       render :edit
     end
   end
 
-  # DELETE /schemes/1
+  # DELETE /schemas/1
   def destroy
-    @scheme.destroy
-    redirect_to schemes_url, notice: 'Scheme was successfully destroyed.'
+    @schema.destroy
+    redirect_to schemas_url, notice: 'schema was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_scheme
-      @scheme = Scheme.find(params[:id])
+    def set_schema
+      @schema = schema.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
-    def scheme_params
-      params.require(:scheme).permit(:user_id, :name, :initiator, :emotions, :thoughts, :behaviour, :my_scheme, :h_thought_text, :r_worry, :o_reaction, :h_behaviour, :belief)
+    def schema_params
+      params.require(:schema).permit(:user_id, :name, :initiator, :emotions, :thoughts, :behaviour, :my_schema, :h_thought_text, :r_worry, :o_reaction, :h_behaviour, :belief)
     end
 end

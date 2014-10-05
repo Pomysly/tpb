@@ -1,3 +1,3 @@
-class Scheme < ActiveRecord::Base
+class schema < ActiveRecord::Base
 	belongs_to :user
 end

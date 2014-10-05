@@ -1,28 +1,28 @@
 require 'rails_helper'
 
-RSpec.describe "schemes/index", :type => :view do
+RSpec.describe "schemas/index", :type => :view do
   before(:each) do
-    assign(:schemes, [
-      Scheme.create!(
+    assign(:schemas, [
+      schema.create!(
         :name => "Name",
         :initiator => "MyText",
         :emotions => "MyText",
         :thoughts => "MyText",
         :behaviour => "MyText",
-        :my_scheme => "MyText",
+        :my_schema => "MyText",
         :h_thought_text => "H Thought Text",
         :r_worry => "MyText",
         :o_reaction => "MyText",
         :h_behaviour => "MyText",
         :belief => "Belief"
       ),
-      Scheme.create!(
+      schema.create!(
         :name => "Name",
         :initiator => "MyText",
         :emotions => "MyText",
         :thoughts => "MyText",
         :behaviour => "MyText",
-        :my_scheme => "MyText",
+        :my_schema => "MyText",
         :h_thought_text => "H Thought Text",
         :r_worry => "MyText",
         :o_reaction => "MyText",
@@ -32,7 +32,7 @@ RSpec.describe "schemes/index", :type => :view do
     ])
   end
 
-  it "renders a list of schemes" do
+  it "renders a list of schemas" do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2

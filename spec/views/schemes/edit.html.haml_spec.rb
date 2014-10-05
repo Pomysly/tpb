@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "schemes/edit", :type => :view do
+RSpec.describe "schemas/edit", :type => :view do
   before(:each) do
-    @scheme = assign(:scheme, Scheme.create!(
+    @schema = assign(:schema, schema.create!(
       :name => "MyString",
       :initiator => "MyText",
       :emotions => "MyText",
       :thoughts => "MyText",
       :behaviour => "MyText",
-      :my_scheme => "MyText",
+      :my_schema => "MyText",
       :h_thought_text => "MyString",
       :r_worry => "MyText",
       :o_reaction => "MyText",
@@ -17,32 +17,32 @@ RSpec.describe "schemes/edit", :type => :view do
     ))
   end
 
-  it "renders the edit scheme form" do
+  it "renders the edit schema form" do
     render
 
-    assert_select "form[action=?][method=?]", scheme_path(@scheme), "post" do
+    assert_select "form[action=?][method=?]", schema_path(@schema), "post" do
 
-      assert_select "input#scheme_name[name=?]", "scheme[name]"
+      assert_select "input#schema_name[name=?]", "schema[name]"
 
-      assert_select "textarea#scheme_initiator[name=?]", "scheme[initiator]"
+      assert_select "textarea#schema_initiator[name=?]", "schema[initiator]"
 
-      assert_select "textarea#scheme_emotions[name=?]", "scheme[emotions]"
+      assert_select "textarea#schema_emotions[name=?]", "schema[emotions]"
 
-      assert_select "textarea#scheme_thoughts[name=?]", "scheme[thoughts]"
+      assert_select "textarea#schema_thoughts[name=?]", "schema[thoughts]"
 
-      assert_select "textarea#scheme_behaviour[name=?]", "scheme[behaviour]"
+      assert_select "textarea#schema_behaviour[name=?]", "schema[behaviour]"
 
-      assert_select "textarea#scheme_my_scheme[name=?]", "scheme[my_scheme]"
+      assert_select "textarea#schema_my_schema[name=?]", "schema[my_schema]"
 
-      assert_select "input#scheme_h_thought_text[name=?]", "scheme[h_thought_text]"
+      assert_select "input#schema_h_thought_text[name=?]", "schema[h_thought_text]"
 
-      assert_select "textarea#scheme_r_worry[name=?]", "scheme[r_worry]"
+      assert_select "textarea#schema_r_worry[name=?]", "schema[r_worry]"
 
-      assert_select "textarea#scheme_o_reaction[name=?]", "scheme[o_reaction]"
+      assert_select "textarea#schema_o_reaction[name=?]", "schema[o_reaction]"
 
-      assert_select "textarea#scheme_h_behaviour[name=?]", "scheme[h_behaviour]"
+      assert_select "textarea#schema_h_behaviour[name=?]", "schema[h_behaviour]"
 
-      assert_select "input#scheme_belief[name=?]", "scheme[belief]"
+      assert_select "input#schema_belief[name=?]", "schema[belief]"
     end
   end
 end
