@@ -1,4 +1,5 @@
 class MoodentriesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_moodentry, only: [:show, :edit, :update, :destroy]
   expose :user
   expose :moodentry

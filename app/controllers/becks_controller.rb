@@ -1,4 +1,5 @@
 class BecksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_beck, only: [:show, :edit, :update, :destroy]
   expose :beck
   expose :becks

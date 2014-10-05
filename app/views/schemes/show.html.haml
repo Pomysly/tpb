@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @scheme.name
+%p
+  %b Initiator:
+  = @scheme.initiator
+%p
+  %b Emotions:
+  = @scheme.emotions
+%p
+  %b Thoughts:
+  = @scheme.thoughts
+%p
+  %b Behaviour:
+  = @scheme.behaviour
+%p
+  %b My scheme:
+  = @scheme.my_scheme
+%p
+  %b H thought text:
+  = @scheme.h_thought_text
+%p
+  %b R worry:
+  = @scheme.r_worry
+%p
+  %b O reaction:
+  = @scheme.o_reaction
+%p
+  %b H behaviour:
+  = @scheme.h_behaviour
+%p
+  %b Belief:
+  = @scheme.belief
+
+= link_to 'Edit', edit_scheme_path(@scheme)
+\|
+= link_to 'Back', schemes_path

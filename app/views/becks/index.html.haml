@@ -22,9 +22,11 @@
       %td= beck.date
       %td= beck.notes
       %td= beck.value
-      %td= link_to 'Edit', edit_beck_path(beck)
-      %td= link_to 'Destroy', beck, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Edytuj', edit_beck_path(beck)
+      %td= link_to 'Usuń', beck, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
 = link_to 'Dodaj nową wartość', new_beck_path, class: "btn btn-large btn-primary pull-right"
+
+%br
