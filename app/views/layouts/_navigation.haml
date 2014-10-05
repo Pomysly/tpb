@@ -11,6 +11,8 @@
       %ul.nav.navbar-nav.pull-right
         - if user_signed_in?
           %li= link_to 'Oś Nastroju', moodentries_path
+          %li= link_to 'Skala Becka', becks_path
+          %li= link_to 'Schematy', schemas_path
           %li= link_to current_user.email, '#'
           %li= link_to 'Logout', destroy_user_session_path, method: :delete
         - else

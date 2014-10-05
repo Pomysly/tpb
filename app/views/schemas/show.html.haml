@@ -1,4 +1,9 @@
-%h1 Schemat: #{schema.name}
+%ol.breadcrumb
+  %li= link_to "Portfolio", root_path
+  %li= link_to "Schematy", schemas_path
+  %li.active #{schema.name}
+
+  %h1 Schemat: #{schema.name}
 %p
   %b Wiara w schemat: #{schema.belief}
 %br
@@ -40,6 +45,5 @@
     %td Zdrowe zachowanie:
     %td= schema.h_behaviour
 
-= link_to 'Edit', edit_schema_path(schema)
-\|
+= link_to 'Edit', edit_schema_path(schema), class: "btn btn-large btn-primary"
 = link_to 'Back', schemas_path
