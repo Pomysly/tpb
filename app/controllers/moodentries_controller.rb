@@ -6,7 +6,7 @@ class MoodentriesController < ApplicationController
   expose :moodentries
   # GET /moodentries
   def index
-    moodentries = Moodentry.all.where(user_id: current_user)
+    moodentries = Moodentry.all.where(user_id: current_user.id)
   end
 
   # GET /moodentries/1
@@ -36,8 +36,8 @@ class MoodentriesController < ApplicationController
 
   # PATCH/PUT /moodentries/1
   def update
-    if @moodentry.update(moodentry_params)
-      redirect_to moodentries_url(user), notice: 'Moodentry was successfully updated.'
+    if moodentry.update(moodentry_params)
+      redirect_to moodentries_url, notice: 'Moodentry was successfully updated.'
     else
       render :edit
     end
@@ -46,13 +46,18 @@ class MoodentriesController < ApplicationController
   # DELETE /moodentries/1
   def destroy
     @moodentry.destroy
-    redirect_to user_moodentries_url(user), notice: 'Moodentry was successfully destroyed.'
+    redirect_to moodentries_url, notice: 'Moodentry was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_moodentry
-      @moodentry = Moodentry.find(params[:id])
+      m = Moodentry.find(params[:id])
+      if m.user_id == current_user.id
+        moodentry = m
+      else
+        redirect_to moodentries_url, notice: 'wrong url'
+      end
     end
 
     # Only allow a trusted parameter "white list" through.

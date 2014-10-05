@@ -1,16 +1,16 @@
 %p
   %b Date:
-  = @beck.date
+  = beck.date
 %p
   %b Notes:
-  = @beck.notes
+  = beck.notes
 %p
   %b Value:
-  = @beck.value
+  = beck.value
 %p
   %b User:
-  = @beck.user_id
+  = beck.user_id
 
-= link_to 'Edit', edit_beck_path(@beck)
+= link_to 'Edit', edit_beck_path(beck)
 \|
 = link_to 'Back', becks_path

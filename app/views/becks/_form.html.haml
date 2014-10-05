@@ -1,9 +1,9 @@
-= form_for @beck do |f|
-  - if @beck.errors.any?
+= form_for beck do |f|
+  - if beck.errors.any?
     #error_explanation
       %h2= "#{pluralize(@beck.errors.count, "error")} prohibited this beck from being saved:"
       %ul
-        - @beck.errors.full_messages.each do |msg|
+        - beck.errors.full_messages.each do |msg|
           %li= msg
 
 

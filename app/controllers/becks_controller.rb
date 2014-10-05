@@ -37,7 +37,7 @@ class BecksController < ApplicationController
 
   # PATCH/PUT /becks/1
   def update
-    if @beck.update(beck_params)
+    if beck.update(beck_params)
       redirect_to @beck, notice: 'Zaktualizowano'
     else
       render :edit
@@ -46,14 +46,19 @@ class BecksController < ApplicationController
 
   # DELETE /becks/1
   def destroy
-    @beck.destroy
+    beck.destroy
     redirect_to becks_url, notice: 'Beck was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_beck
-      @beck = Beck.find(params[:id])
+      b = Beck.find(params[:id]) 
+      if b.user_id == current_user.id
+        back = b
+      else
+        redirect_to becks_url, notice: 'wrong url'
+      end
     end
 
     # Only allow a trusted parameter "white list" through.

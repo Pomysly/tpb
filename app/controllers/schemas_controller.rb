@@ -54,7 +54,12 @@ class SchemasController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_schema
-      schema = Schema.find(params[:id])
+      s = Schema.find(params[:id]) if user_id = current_user
+      if s.user_id == current_user.id
+        schema = s
+      else
+        redirect_to schemas_url, notice: 'wrong url'
+      end
     end
 
     # Only allow a trusted parameter "white list" through.

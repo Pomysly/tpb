@@ -1,14 +1,15 @@
-%p#notice= notice
 
 %p
   %b Date:
-  = @moodentry.date
+  = moodentry.date
 %p
   %b Note:
-  = @moodentry.note
+  = moodentry.note
 %p
   %b Mood:
-  = @moodentry.mood
+  = moodentry.mood
 
-= link_to 'Edit', edit_moodentry_path(user, moodentry)
+%p= moodentry.user_id
+
+= link_to 'Edit', edit_moodentry_path(moodentry)
 = link_to 'Back', moodentries_path
