@@ -1,9 +1,9 @@
-= form_for @schema do |f|
-  - if @schema.errors.any?
+= form_for schema do |f|
+  - if schema.errors.any?
     #error_explanation
       %h2= "#{pluralize(@schema.errors.count, "error")} prohibited this schema from being saved:"
       %ul
-        - @schema.errors.full_messages.each do |msg|
+        - schema.errors.full_messages.each do |msg|
           %li= msg
 
   .field

@@ -1,11 +1,14 @@
-class schemasController < ApplicationController
+class SchemasController < ApplicationController
   before_action :authenticate_user!
   before_action :set_schema, only: [:show, :edit, :update, :destroy]
+  expose :user
+  expose :schema
+  expose :schemas
 
 
   # GET /schemas
   def index
-    @schemas = Schema.all
+    schemas = Schema.all
   end
 
   # GET /schemas/1
@@ -14,7 +17,7 @@ class schemasController < ApplicationController
 
   # GET /schemas/new
   def new
-    @schema = Schema.new
+    schema = Schema.new
   end
 
   # GET /schemas/1/edit
@@ -23,10 +26,11 @@ class schemasController < ApplicationController
 
   # POST /schemas
   def create
-    @schema = Schema.new(schema_params)
+    schema = Schema.new(schema_params)
 
-    if @schema.save
-      redirect_to @schema, notice: 'schema was successfully created.'
+    if schema.save
+      current_user.schemas << schema
+      redirect_to schema, notice: 'schema was successfully created.'
     else
       render :new
     end
@@ -34,7 +38,7 @@ class schemasController < ApplicationController
 
   # PATCH/PUT /schemas/1
   def update
-    if @schema.update(schema_params)
+    if schema.update(schema_params)
       redirect_to @schema, notice: 'schema was successfully updated.'
     else
       render :edit
@@ -43,14 +47,14 @@ class schemasController < ApplicationController
 
   # DELETE /schemas/1
   def destroy
-    @schema.destroy
+    schema.destroy
     redirect_to schemas_url, notice: 'schema was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_schema
-      @schema = schema.find(params[:id])
+      schema = Schema.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
