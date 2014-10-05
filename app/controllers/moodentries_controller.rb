@@ -27,8 +27,8 @@ class MoodentriesController < ApplicationController
     self.moodentry = Moodentry.new(moodentry_params)
 
     if moodentry.save
-      user.moodentries << moodentry
-      redirect_to user_moodentries_url(user), notice: 'Moodentry was successfully created.'
+      current_user.moodentries << moodentry
+      redirect_to moodentries_url(user), notice: 'Moodentry was successfully created.'
     else
       render :new
     end
@@ -37,7 +37,7 @@ class MoodentriesController < ApplicationController
   # PATCH/PUT /moodentries/1
   def update
     if @moodentry.update(moodentry_params)
-      redirect_to user_moodentries_url(user), notice: 'Moodentry was successfully updated.'
+      redirect_to moodentries_url(user), notice: 'Moodentry was successfully updated.'
     else
       render :edit
     end
