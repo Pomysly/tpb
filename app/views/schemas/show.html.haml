@@ -1,36 +1,44 @@
+%h1 Schemat: #{schema.name}
 %p
-  %b Name:
-  = schema.name
-%p
-  %b Initiator:
-  = schema.initiator
-%p
-  %b Emotions:
-  = schema.emotions
-%p
-  %b Thoughts:
-  = schema.thoughts
-%p
-  %b Behaviour:
-  = schema.behaviour
-%p
-  %b My schema:
-  = schema.my_schema
-%p
-  %b H thought text:
-  = schema.h_thought
-%p
-  %b R worry:
-  = schema.r_worry
-%p
-  %b O reaction:
-  = schema.o_reaction
-%p
-  %b H behaviour:
-  = schema.h_behaviour
-%p
-  %b Belief:
-  = schema.belief
+  %b Wiara w schemat: #{schema.belief}
+%br
+
+%table.table
+  %tr
+    %td Czynnik wywołujący:
+    %td= schema.initiator
+
+  %tr
+    %td Moje emocje:
+    %td= schema.emotions
+
+  %tr
+    %td Moje myśli:
+    %td= schema.thoughts
+
+  %tr
+    %td Moje aktualne zachowanie:
+    %td= schema.behaviour
+
+  %tr
+    %td Mój schemat:
+    %td= schema.my_schema
+
+  %tr
+    %td Moje zdrowe widzenie:
+    %td= schema.h_thought
+
+  %tr
+    %td Moje realistyczne zmartwienie:
+    %td= schema.r_worry
+
+  %tr
+    %td Moja nadmierna reakcja:
+    %td= schema.o_reaction
+
+  %tr
+    %td Zdrowe zachowanie:
+    %td= schema.h_behaviour
 
 = link_to 'Edit', edit_schema_path(schema)
 \|

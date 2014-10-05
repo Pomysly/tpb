@@ -39,7 +39,7 @@ class SchemasController < ApplicationController
   # PATCH/PUT /schemas/1
   def update
     if schema.update(schema_params)
-      redirect_to @schema, notice: 'schema was successfully updated.'
+      redirect_to schema, notice: 'schema was successfully updated.'
     else
       render :edit
     end

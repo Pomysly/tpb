@@ -8,37 +8,38 @@
             %li= msg
     .form-group
       .field
-        = f.label :name
+        = f.label :nazwa
         = f.text_field :name, class: "form-control"
       .field
-        = f.label :initiator
+        = f.label :"Wiara w schemat"
+        = f.text_field :belief, class: "form-control"
+      .field
+        = f.label :"Czynnik wywołujący"
         = f.text_area :initiator, class: "form-control"
       .field
-        = f.label :emotions
+        = f.label :"Moje emocje"
         = f.text_area :emotions, class: "form-control"
       .field
-        = f.label :thoughts
+        = f.label :"Moje myśli"
         = f.text_area :thoughts, class: "form-control"
       .field
-        = f.label :behaviour
+        = f.label :"Moje aktualne zachowanie"
         = f.text_area :behaviour, class: "form-control"
       .field
-        = f.label :my_schema
+        = f.label :"Mój schemat"
         = f.text_area :my_schema, class: "form-control"
       .field
-        = f.label :h_thought
+        = f.label :"Moje zdrowe widzenie"
         = f.text_area :h_thought, class: "form-control"
       .field
-        = f.label :r_worry
+        = f.label :"Moje realistyczne zmartwienie"
         = f.text_area :r_worry, class: "form-control"
       .field
-        = f.label :o_reaction
+        = f.label :"Moja nadmierna reakcja"
         = f.text_area :o_reaction, class: "form-control"
       .field
-        = f.label :h_behaviour
+        = f.label :"Zdrowe zachowanie"
         = f.text_area :h_behaviour, class: "form-control"
-      .field
-        = f.label :belief
-        = f.text_field :belief, class: "form-control"
+      
       .actions
         = f.submit 'Save', class: "btn btn-large btn-primary pull-right"
