@@ -17,7 +17,7 @@
     %th
     %th
 
-  - becks.where(user_id: current_user).each do |beck|
+  - current_user.becks.each do |beck|
     %tr
       %td= beck.date
       %td= beck.notes

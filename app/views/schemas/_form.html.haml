@@ -1,43 +1,44 @@
-= form_for schema do |f|
-  - if schema.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@schema.errors.count, "error")} prohibited this schema from being saved:"
-      %ul
-        - schema.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :initiator
-    = f.text_area :initiator
-  .field
-    = f.label :emotions
-    = f.text_area :emotions
-  .field
-    = f.label :thoughts
-    = f.text_area :thoughts
-  .field
-    = f.label :behaviour
-    = f.text_area :behaviour
-  .field
-    = f.label :my_schema
-    = f.text_area :my_schema
-  .field
-    = f.label :h_thought
-    = f.text_area :h_thought
-  .field
-    = f.label :r_worry
-    = f.text_area :r_worry
-  .field
-    = f.label :o_reaction
-    = f.text_area :o_reaction
-  .field
-    = f.label :h_behaviour
-    = f.text_area :h_behaviour
-  .field
-    = f.label :belief
-    = f.text_field :belief
-  .actions
-    = f.submit 'Save'
+.jumbotron
+  = form_for schema do |f|
+    - if schema.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@schema.errors.count, "error")} prohibited this schema from being saved:"
+        %ul
+          - schema.errors.full_messages.each do |msg|
+            %li= msg
+    .form-group
+      .field
+        = f.label :name
+        = f.text_field :name, class: "form-control"
+      .field
+        = f.label :initiator
+        = f.text_area :initiator, class: "form-control"
+      .field
+        = f.label :emotions
+        = f.text_area :emotions, class: "form-control"
+      .field
+        = f.label :thoughts
+        = f.text_area :thoughts, class: "form-control"
+      .field
+        = f.label :behaviour
+        = f.text_area :behaviour, class: "form-control"
+      .field
+        = f.label :my_schema
+        = f.text_area :my_schema, class: "form-control"
+      .field
+        = f.label :h_thought
+        = f.text_area :h_thought, class: "form-control"
+      .field
+        = f.label :r_worry
+        = f.text_area :r_worry, class: "form-control"
+      .field
+        = f.label :o_reaction
+        = f.text_area :o_reaction, class: "form-control"
+      .field
+        = f.label :h_behaviour
+        = f.text_area :h_behaviour, class: "form-control"
+      .field
+        = f.label :belief
+        = f.text_field :belief, class: "form-control"
+      .actions
+        = f.submit 'Save', class: "btn btn-large btn-primary pull-right"

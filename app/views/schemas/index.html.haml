@@ -1,39 +1,23 @@
-%h1 Schematy
-
+.row
+  .col-md-6
+    %h1 Schematy
+  .col-md-6
+    %br
+    = link_to 'Dodaj nowy schemat', new_schema_path, class: "btn btn-large btn-primary pull-right"
 %table.table
   %tr
-    %th Name
-    %th Initiator
-    %th Emotions
-    %th Thoughts
-    %th Behaviour
-    %th My schema
-    %th H thought text
-    %th R worry
-    %th O reaction
-    %th H behaviour
-    %th Belief
-    %th
+    %th Nazwa
+    %th Mój schemat
+    %th Wierzę na
     %th
     %th
 
   - current_user.schemas.each do |schema|
     %tr
-      %td= schema.name
-      %td= schema.initiator
-      %td= schema.emotions
-      %td= schema.thoughts
-      %td= schema.behaviour
+      %td= link_to schema.name, schema
       %td= schema.my_schema
-      %td= schema.h_thought
-      %td= schema.r_worry
-      %td= schema.o_reaction
-      %td= schema.h_behaviour
       %td= schema.belief
-      %td= link_to 'Show', schema
-      %td= link_to 'Edit', edit_schema_path(schema)
-      %td= link_to 'Destroy', schema, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Edytuj', edit_schema_path(schema)
+      %td= link_to 'Usuń', schema, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New schema', new_schema_path

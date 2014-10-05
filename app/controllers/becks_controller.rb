@@ -28,7 +28,7 @@ class BecksController < ApplicationController
     self.beck = Beck.new(beck_params)
 
     if beck.save
-      current_user.beck << beck
+      current_user.becks << beck
       redirect_to becks_path, notice: 'Dodano nową wartość'
     else
       render :new
