@@ -30,7 +30,7 @@ class SchemasController < ApplicationController
 
     if schema.save
       current_user.schemas << schema
-      redirect_to schema, notice: 'schema was successfully created.'
+      redirect_to schema, notice: 'Dodano nowy schemat'
     else
       render :new
     end
@@ -39,7 +39,7 @@ class SchemasController < ApplicationController
   # PATCH/PUT /schemas/1
   def update
     if schema.update(schema_params)
-      redirect_to schema, notice: 'schema was successfully updated.'
+      redirect_to schema, notice: 'Zaktualizowano'
     else
       render :edit
     end
@@ -48,7 +48,7 @@ class SchemasController < ApplicationController
   # DELETE /schemas/1
   def destroy
     schema.destroy
-    redirect_to schemas_url, notice: 'schema was successfully destroyed.'
+    redirect_to schemas_url, notice: 'schemat został usunięty'
   end
 
   private

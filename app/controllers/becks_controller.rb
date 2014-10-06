@@ -47,7 +47,7 @@ class BecksController < ApplicationController
   # DELETE /becks/1
   def destroy
     beck.destroy
-    redirect_to becks_url, notice: 'Beck was successfully destroyed.'
+    redirect_to becks_url, notice: 'Usunięto'
   end
 
   private

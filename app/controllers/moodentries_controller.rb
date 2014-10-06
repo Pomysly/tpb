@@ -28,7 +28,7 @@ class MoodentriesController < ApplicationController
 
     if moodentry.save
       current_user.moodentries << moodentry
-      redirect_to moodentries_url(user), notice: 'Moodentry was successfully created.'
+      redirect_to moodentries_url(user), notice: 'Dodano nową wartość.'
     else
       render :new
     end
@@ -37,7 +37,7 @@ class MoodentriesController < ApplicationController
   # PATCH/PUT /moodentries/1
   def update
     if moodentry.update(moodentry_params)
-      redirect_to moodentries_url, notice: 'Moodentry was successfully updated.'
+      redirect_to moodentries_url, notice: 'Zaktualizowano'
     else
       render :edit
     end
@@ -46,7 +46,7 @@ class MoodentriesController < ApplicationController
   # DELETE /moodentries/1
   def destroy
     moodentry.destroy
-    redirect_to moodentries_url, notice: 'Moodentry was successfully deleted.'
+    redirect_to moodentries_url, notice: 'Wpis został usunięty'
   end
 
   private
