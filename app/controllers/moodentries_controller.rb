@@ -15,7 +15,7 @@ class MoodentriesController < ApplicationController
 
   # GET /moodentries/new
   def new
-    @moodentry = Moodentry.new
+    moodentry = Moodentry.new
   end
 
   # GET /moodentries/1/edit
@@ -45,8 +45,8 @@ class MoodentriesController < ApplicationController
 
   # DELETE /moodentries/1
   def destroy
-    @moodentry.destroy
-    redirect_to moodentries_url, notice: 'Moodentry was successfully destroyed.'
+    moodentry.destroy
+    redirect_to moodentries_url, notice: 'Moodentry was successfully deleted.'
   end
 
   private

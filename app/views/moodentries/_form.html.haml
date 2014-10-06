@@ -9,13 +9,13 @@
   .row
     .col-md-6
       .field
-        = f.label :date
+        = f.label :data
         = f.date_select :date, class: "form-control"
       .field
-        = f.label :note
+        = f.label :notatka
         = f.text_area :note, class: "form-control"
       .field
-        = f.label :mood
+        = f.label :nastrój
         = f.number_field :mood, class: "form-control-short"
       .actions
         = f.submit 'Save', class: "btn btn-large btn-primary"
