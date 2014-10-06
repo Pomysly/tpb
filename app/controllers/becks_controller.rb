@@ -38,7 +38,7 @@ class BecksController < ApplicationController
   # PATCH/PUT /becks/1
   def update
     if beck.update(beck_params)
-      redirect_to @beck, notice: 'Zaktualizowano'
+      redirect_to beck, notice: 'Zaktualizowano'
     else
       render :edit
     end
