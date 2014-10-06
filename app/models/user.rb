@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :moodentries, dependent: :destroy
   has_many :becks, dependent: :destroy
   has_many :schemas, dependent: :destroy
+  has_many :abcs, dependent: :destroy
   validates_presence_of :firstname, :lastname
 
   def admin?

@@ -1,0 +1,17 @@
+
+%p
+  %b Aut thought:
+  = abc.aut_thought
+%p
+  %b Mistake:
+  = abc.mistake
+%p
+  %b Adapt thought:
+  = abc.adapt_thought
+%p
+  %b User:
+  = abc.user_id
+
+= link_to 'Edit', edit_abc_path(abc)
+\|
+= link_to 'Back', abcs_path

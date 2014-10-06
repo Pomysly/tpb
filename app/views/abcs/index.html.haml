@@ -1,0 +1,32 @@
+%ol.breadcrumb
+  %li= link_to "Home", root_path
+  %li.active ABC
+  
+.row
+  .col-md-6
+    %h1 Metoda ABC
+    %p 
+      %b Klasyfikowanie zniekształconych myśli
+  .col-md-6
+    %br
+    = link_to 'Dodaj nowy wiersz', new_abc_path, class: "btn btn-large btn-primary pull-right"
+%p
+%table.table
+  %tr
+    %th Myśl automatyczna
+    %th Zniekształcenie poznawcze
+    %th Myśl adaptacyjna
+    %th
+    %th
+
+  - current_user.abcs.each do |abc|
+    %tr
+      %td= abc.aut_thought
+      %td= abc.mistake
+      %td= abc.adapt_thought
+      %td= link_to 'Edytuj', edit_abc_path(abc)
+      %td= link_to 'Usuń', abc, :method => :delete, :data => { :confirm => 'Usunąć wiersz?' }
+
+%br
+
+= link_to 'Dodaj nowy wiersz', new_abc_path, class: "btn btn-large btn-primary pull-right"
