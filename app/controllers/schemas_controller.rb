@@ -64,6 +64,6 @@ class SchemasController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def schema_params
-      params.require(:schema).permit(:user_id, :name, :initiator, :emotions, :thoughts, :behaviour, :my_schema, :h_thought, :r_worry, :o_reaction, :h_behaviour, :belief)
+      params.require(:schema).permit(:user_id, :name, :initiator, :emotions, :thoughts, :behaviour, :my_schema, :h_thought, :r_worry, :o_reaction, :h_behaviour, :belief, :pros, :cons)
     end
 end

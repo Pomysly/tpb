@@ -5,7 +5,7 @@
 
   %h1 Schemat: #{schema.name}
 %p
-  %b Wiara w schemat: #{schema.belief}
+  %h4 Wiara w schemat: #{schema.belief}
 %br
 
 %table.table
@@ -44,6 +44,21 @@
   %tr
     %th Zdrowe zachowanie:
     %td= schema.h_behaviour
+  %tr
+    %th 
+    %td
+
+%h4 Wady i Zalety Schematu
+
+%table.table
+  %tr
+    %th wady:
+    %td= schema.cons
+
+  %tr
+    %th zalety:
+    %td= schema.pros
+
 
 = link_to 'Edit', edit_schema_path(schema), class: "btn btn-large btn-primary"
 = link_to 'Back', schemas_path

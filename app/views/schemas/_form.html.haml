@@ -40,6 +40,13 @@
       .field
         = f.label :"Zdrowe zachowanie"
         = f.text_area :h_behaviour, class: "form-control"
+
+      .field
+      = f.label :"Zalety"
+      = f.text_area :pros, class: "form-control"
+      .field
+      = f.label :"Wady"
+      = f.text_area :cons, class: "form-control"
       
       .actions
         = f.submit 'Save', class: "btn btn-large btn-primary pull-right"
